@@ -76,5 +76,5 @@ add order_hour int
 update pizza_sales
 set order_hour= DATEPART(HOUR,order_time)
 ```
-![](pizza clean data.png)
+![](Pizza_Cleaned_Data.png)
  
