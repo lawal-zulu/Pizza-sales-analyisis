@@ -34,7 +34,46 @@ alter table pizza_sales alter column order_date date
 ```sql
 alter table pizza_sales alter column order_time time
 ```
-2.
+2. Changing the Pizza size abbreviations to aid readability
+```sql
+select pizza_size,
+case when pizza_size = 'L' THEN 'Large'
+     when pizza_size = 'M' THEN 'Medium'
+	 when pizza_size = 'S' then 'Small'
+	 when pizza_size = 'XL'then 'Extra Large'
+	 else pizza_size
+	 end
+from pizza_sales
 
+update pizza_sales 
+set pizza_size= case when pizza_size = 'L' THEN 'Large'
+     when pizza_size = 'M' THEN 'Medium'
+	 when pizza_size = 'S' then 'Small'
+	  when pizza_size = 'XL'then 'Extra Large'
+	  when pizza_size = 'XXL'then 'Extra Extra Large'
+	 else pizza_size
+	 end
+```
+3. Created a new column (weekdays) using the order date column
+```sql
+select DATENAME(dw,order_date),order_date
+from pizza_sales
 
+alter table pizza_sales
+add weekday nvarchar(50)
+
+update pizza_sales 
+set weekday = DATENAME(dw,order_date)
+```
+4. Created a new column (Hour Interval) Using Order time column
+```sql
+select DATEPART(HOUR,order_time) as hourinterval,order_time
+from pizza_sales
+
+alter table pizza_sales
+add order_hour int
+
+update pizza_sales
+set order_hour= DATEPART(HOUR,order_time)
+```
  
