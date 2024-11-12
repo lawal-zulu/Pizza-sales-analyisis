@@ -12,6 +12,7 @@ Here's a link to the Data on Kaggle:(https://www.kaggle.com/datasets/shilongzhua
 This pizza sales dataset make up 12 relevant features:
 The data contains just one sheet with 12 columns and 48,620 rows
 -order_id: Unique identifier for each order placed by a table
+
 -order_details_id: Unique identifier for each pizza placed within each order (pizzas of the same type and size are kept in the same row, and the quantity increases)
 -pizza_id: Unique key identifier that ties the pizza ordered to its details, like size and price
 -quantity: Quantity ordered for each pizza of the same type and size
