@@ -13,17 +13,17 @@ This pizza sales dataset make up 12 relevant features:
 The data contains just one sheet with 12 columns and 48,620 rows
 -order_id: Unique identifier for each order placed by a table
 
--order_details_id: Unique identifier for each pizza placed within each order (pizzas of the same type and size are kept in the same row, and the quantity increases)
--pizza_id: Unique key identifier that ties the pizza ordered to its details, like size and price
--quantity: Quantity ordered for each pizza of the same type and size
--order_date: Date the order was placed (entered into the system prior to cooking & serving)
--order_time: Time the order was placed (entered into the system prior to cooking & serving)
--unit_price: Price of the pizza in USD
--total_price: unit_price * quantity
--pizza_size: Size of the pizza (Small, Medium, Large, X Large, or XX Large)
--pizza_type: Unique key identifier that ties the pizza ordered to its details, like size and price
--pizza_ingredients: ingredients used in the pizza as shown in the menu (they all include Mozzarella Cheese, even if not specified; and they all include Tomato Sauce, unless another sauce is specified)
--pizza_name: Name of the pizza as shown in the menu
+- order_details_id: Unique identifier for each pizza placed within each order (pizzas of the same type and size are kept in the same row, and the quantity increases).
+- pizza_id: Unique key identifier that ties the pizza ordered to its details, like size and price.
+- quantity: Quantity ordered for each pizza of the same type and size.
+- order_date: Date the order was placed (entered into the system prior to cooking & serving).
+- order_time: Time the order was placed (entered into the system prior to cooking & serving).
+- unit_price: Price of the pizza in USD.
+- total_price: unit_price * quantity.
+- pizza_size: Size of the pizza (Small, Medium, Large, X Large, or XX Large).
+- pizza_type: Unique key identifier that ties the pizza ordered to its details, like size and price.
+- pizza_ingredients: ingredients used in the pizza as shown in the menu (they all include Mozzarella Cheese, even if not specified; and they all include Tomato Sauce, unless another sauce is specified).
+- pizza_name: Name of the pizza as shown in the menu.
 
 # DATA CLEANING AND TRANSFORMATION
  The data was efficiently cleaned and made more usable using Microsoft SQL Server. Some of the transformation and cleaning as effected are as follow;
@@ -78,4 +78,28 @@ set order_hour= DATEPART(HOUR,order_time)
 ```
 This is the Final look of the data after Cleaning and Transformation
 ![](Pizza_Cleaned_Data.png)
- 
+
+ # EXPLORATORY DATA ANALYSIS
+ The Exploratory data analysis phase invovlved meticulously examining the dataset to properly address & answer the questions and inquirires presented by the stakeholders.
+ 1. What days does the business tend to be busiest?
+ ```sql
+    select COUNT(distinct order_id) as order_per_days,weekday
+from pizza_sales
+group by weekday
+order by order_per_days desc
+```
+![](Busiest_days.png)
+_This result shows fridays,thursdays and saturdays to be the busiest days for the business._
+
+2. What hours of the day does the business tend to be busiest?
+```sql
+select  count(distinct order_id) as orders_per_hour,order_hour
+from pizza_sales
+group by order_hour
+order by  count(distinct order_id) desc
+```
+_This result shows 12,1,6 & 5pm to be the top 4 busiest hours for the business._
+![](Busiest_hours.png)
+
+3. 
+
