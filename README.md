@@ -101,5 +101,43 @@ order by  count(distinct order_id) desc
 _This result shows 12,1,6 & 5pm to be the top 4 busiest hours for the business._
 ![](Busiest_hours.png)
 
-3. 
+3. What are the worst and best selling Pizzas?
+ ```sql
+   --Top 5 best sellers
+select top 5 sum(total_price) as c,pizza_name
+from pizza_sales
+group by pizza_name
+order by c desc
+--Top 5 worst sellers
+select top 5 sum(total_price) as c,pizza_name
+from pizza_sales
+group by pizza_name
+order by c asc
+```
+![](Best&worst_sellers.png)
 
+4. How much are customers spending on an average per order?
+```sql
+SELECT 
+    round(AVG(spend_per_order),2) AS average_spend_per_order
+FROM (
+    SELECT 
+        order_id, 
+        SUM(total_price) AS spend_per_order
+    FROM 
+        pizza_sales
+    GROUP BY 
+        order_id
+
+) AS order_totals;
+```
+![](avgspend_per_order.png)
+
+5. Best Selling Pizza category
+```sql
+select round(SUM(total_price),0) As sum ,pizza_category
+from pizza_sales 
+group by pizza_category
+order by sum DESC
+```
+![](sales_by_category.png)
