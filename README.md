@@ -99,6 +99,7 @@ group by order_hour
 order by  count(distinct order_id) desc
 ```
 _This result shows 12,1,6 & 5pm to be the top 4 busiest hours for the business._
+
 ![](Busiest_hours.png)
 
 3. What are the worst and best selling Pizzas?
@@ -142,9 +143,19 @@ order by sum DESC
 ```
 ![](sales_by_category.png)
 
+6. Whats the Percentage of sales by the Pizza sizes
+```sql
+select pizza_size,round(sum(total_price),0) as total_sales,round(sum(total_price) * 100 / (select sum(total_price) from pizza_sales),2) as pct
+from pizza_sales 
+group by pizza_size
+order by pct DESC
+```
+![](sales_by_size.png).
 # VISUALIZATION
 The picture below shows the visualization of resutlts from the EDA done on the data set.
 ![](Pizza_sales_dashboard.png)
+
+_The dashboard can be interacted with here; https://app.powerbi.com/view?r=eyJrIjoiZmU4NTI2ZTUtMWM4NC00ZjA2LTliZWUtYTExYjNkZTAxZjdkIiwidCI6IjI2ZjVlZjg4LWVjNWUtNDUzNC1iMTY0LWM4YjZmZTk4ZDlkNyJ9_
 
 # RESULTS
 
