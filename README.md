@@ -1,5 +1,11 @@
 # Pizza-sales-analyisis
-This project aims to delve into a comprehensive analysis of a pizza sales data to extract valuable insights that can drive strategic business decisions. By examining key metrics and identifying trends to help optimize sales strategies, improve customer satisfaction, and ultimately boost revenue.
+The primary objective of this data analysis project is to leverage the transactional data provided by an hypothetical pizza store Plato's Pizza, to uncover valuable insights that can drive operational efficiency, enhance customer satisfaction, and ultimately boost sales. By analyzing historical data, i aim to identify trends, patterns, and opportunities that can inform strategic decision-making.
+
+Specific Goals
+
+- Peak Period Identification: Determine the busiest days and times to optimize staffing schedules and inventory management.
+- Pizza Popularity Analysis: Identify the best and worst-selling pizzas to refine the menu and marketing strategies.
+- Customer Behavior Understanding: Analyze customer spending habits, order frequency, and preferred pizza types to tailor offerings and promotions.
 
 # TOOLS USED
 - SQL – Data cleaning and Analysis,
