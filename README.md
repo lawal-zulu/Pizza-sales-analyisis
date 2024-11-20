@@ -141,3 +141,6 @@ group by pizza_category
 order by sum DESC
 ```
 ![](sales_by_category.png)
+
+# VISUALIZATION
+![](oizza_sales_dashboard)
