@@ -89,7 +89,7 @@ group by weekday
 order by order_per_days desc
 ```
 ![](Busiest_days.png)
-_This result shows fridays,thursdays and saturdays to be the busiest days for the business._
+_This result shows fridays,thursdays and saturdays tends to be the busiest days for the business._
 
 2. What hours of the day does the business tend to be busiest?
 ```sql
@@ -104,18 +104,17 @@ _This result shows 12,1,6 & 5pm to be the top 4 busiest hours for the business._
 
 3. What are the worst and best selling Pizzas?
  ```sql
-   --Top 5 best sellers
-select top 5 sum(total_price) as c,pizza_name
+select top 5 round(sum(quantity),0) as c,pizza_name
 from pizza_sales
 group by pizza_name
 order by c desc
---Top 5 worst sellers
-select top 5 sum(total_price) as c,pizza_name
+--worst
+select top 5 round(sum(quantity),0) as c,pizza_name
 from pizza_sales
 group by pizza_name
 order by c asc
 ```
-![](Best&worst_sellers.png)
+![](best&worst_sellers.png)
 
 4. How much are customers spending on an average per order?
 ```sql
@@ -157,5 +156,25 @@ The picture below shows the visualization of resutlts from the EDA done on the d
 
 _The dashboard can be interacted with here; https://app.powerbi.com/view?r=eyJrIjoiZmU4NTI2ZTUtMWM4NC00ZjA2LTliZWUtYTExYjNkZTAxZjdkIiwidCI6IjI2ZjVlZjg4LWVjNWUtNDUzNC1iMTY0LWM4YjZmZTk4ZDlkNyJ9_
 
-# RESULTS
+# INSIGHTS
+- A total of 817,860.05 dollars worth of pizza were sold in 2015
+- A sum of 49,574 of pizzas were sold in 2015
+- A total number of 21,350 orders were placed in 2015
+- On an average customers spend 38.31 dollars per order suggesting that customers are willing to spend a reasonable amount on pizza which is good for the business.
+- On an average customers order 2 units of pizza per order indicating a preference for multiple pizzas per order, possibly for sharing or for larger groups.
+- Fridays,thursdays and saturdays tend to be the busiest days for the business indicating a strong weekend demand for pizza.
+- 12,1,6 & 5pm to be the top 4 busiest hours for the business  suggesting that lunch and dinner are the prime times for pizza consumption.
+- The top best selling pizzas based on popularity and quantity ordered are the;  Classic Deluxe Pizza,Barbecue Chicken Pizza,Hawaiian PizzPepperoni,PizzaThai Chicken Pizza.
+- The worst selling pizzas  based on popularity and quantity ordered are the;  Brie Carre Pizza,Mediterranean Pizza, Calabrese Pizza, Spinach Supreme Pizza,Soppressata Pizza
+- The best performing pizza size is the Large pizza size with more than 45% of total sales and the worst perfroming pizza size is the Extra Extra large pizza size barely making up to 1% of tottal sales.
+
+# RECOMMENDATIONS
+- Focus on Best-Sellers: Prioritize the production and marketing of the top-selling pizzas: Classic Deluxe, Barbecue Chicken, Hawaiian, and Pepperoni.
+- Reevaluate Low-Performing Pizzas: Consider discontinuing or redesigning the worst-performing pizzas (Brie Carre, Mediterranean, Calabrese, Spinach Supreme, Soppressata) or promoting them with special offers or discounts.
+-  The Extra Extra Large size could be re-evaluated or dsicontinued.
+-  Optimize Pizza Sizes: Given the popularity of the Large size, consider offering more options within this size range or introducing a "Family Size" option
+-  Targeted Marketing: Utilize data on peak hours and days to implement targeted marketing campaigns, such as happy hour deals or weekend specials.
+-  Staffing: Schedule staff effectively to meet peak demand periods especially on Fridays, Thursdays, and Saturdays to ensure efficient service and avoid long wait times.
+  
+
 
