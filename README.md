@@ -144,7 +144,7 @@ order by sum DESC
 
 # VISUALIZATION
 The picture below shows the visualization of resutlts from the EDA done on the data set.
-![](Pizza_sales_dashboard)
+![](Pizza_sales_dashboard.png)
 
 # RESULTS
 
