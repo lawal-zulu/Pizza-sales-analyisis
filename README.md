@@ -143,4 +143,8 @@ order by sum DESC
 ![](sales_by_category.png)
 
 # VISUALIZATION
-![](oizza_sales_dashboard)
+The picture below shows the visualization of resutlts from the EDA done on the data set.
+![](Pizza_sales_dashboard)
+
+# RESULTS
+
